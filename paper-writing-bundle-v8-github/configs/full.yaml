@@ -1,0 +1,100 @@
+run_name: full
+seed: 42
+experiment:
+  run_twin_calibration: true
+  run_forecasting: true
+  run_dispatch: true
+  run_stress_tests: true
+split:
+  train_end: '2018-08-31 23:45:00'
+  val_end: '2018-10-31 23:45:00'
+  test_end: '2018-12-31 23:45:00'
+features:
+  lag_steps:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  - 24
+  - 48
+  - 96
+  - 192
+  - 672
+  rolling_windows:
+  - 4
+  - 16
+  - 96
+  - 192
+training:
+  forecast_model:
+    n_estimators: 50
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.9
+    colsample_bytree: 0.85
+    reg_lambda: 1.5
+    tree_method: hist
+    n_jobs: 4
+dispatch:
+  horizon_steps: 32
+  dt_hours: 0.25
+  import_limit_kw: 1500.0
+  export_limit_kw: 1000.0
+  feed_in_factor: 0.35
+  peak_penalty_usd_per_kw: 0.025
+  carbon_proxy_base_kg_per_kwh: 0.35
+  carbon_proxy_price_weight: 0.25
+  carbon_cost_usd_per_kg: 0.04
+  solver_method: highs
+  reserve_uncertainty_gain: 0.22
+  reserve_comm_loss_gain: 0.32
+  reserve_anomaly_gain: 0.26
+  load_guardband_gain: 0.8
+  pv_guardband_gain: 1.05
+  trust_penalty_usd_per_kw: 0.08
+  peak_penalty_trust_gain: 2.4
+  terminal_reserve_buffer_soc: 0.08
+  min_export_fraction_low_trust: 0.0
+  trust_fallback_threshold: 0.64
+  fallback_charge_buffer_soc: 0.12
+  fallback_charge_fraction: 0.94
+  fallback_discharge_fraction: 0.7
+  comm_loss_weight: 0.68
+  anomaly_weight: 0.48
+  uncertainty_weight: 0.4
+  max_reserve_uplift_soc: 0.22
+  reserve_headroom_soc: 0.18
+  fallback_emergency_import_fraction: 0.58
+  fallback_emergency_discharge_fraction: 0.9
+  fallback_low_trust_charge_cap_fraction: 0.45
+  fallback_low_trust_idle_band_kw: 40.0
+  penalty_reserve_gain: 0.1
+  uncertainty_export_suppression_gain: 0.34
+  penalty_export_suppression_gain: 0.22
+  uncertainty_fallback_gain: 0.08
+  penalty_fallback_gain: 0.06
+  risk_decay_steps: 3.0
+  reserve_floor_gain: 0.22
+  peak_target_penalty_gain: 0.14
+  peak_target_uncertainty_gain: 0.22
+  peak_slack_penalty_base: 0.025
+  peak_slack_penalty_gain: 0.06
+  reserve_slack_penalty_base: 0.12
+  reserve_slack_penalty_gain: 0.1
+  terminal_shortfall_penalty: 0.25
+  critical_comm_threshold: 0.1
+  critical_trust_threshold: 0.12
+  load_shed_penalty_usd_per_kwh: 6.0
+  spill_penalty_usd_per_kwh: 0.02
+  critical_import_fraction: 0.62
+stress:
+  scenarios:
+  - baseline
+  - comm_loss_light
+  - comm_loss_heavy
+  - missing_meter_data
+  - sensor_spike_anomalies
+  - forecast_shock_pv_drop
+  - ev_surge_event
+  - compound_stress
