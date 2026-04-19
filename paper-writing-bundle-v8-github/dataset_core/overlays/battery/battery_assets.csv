@@ -1,0 +1,5 @@
+site_id,site_type,battery_power_kw,battery_energy_kwh,roundtrip_efficiency,initial_soc,reserve_soc_floor,throughput_cost_usd_per_kwh,degradation_weight
+CAISO_SMALL_OFFICE_01,small_office,75,300,0.92,0.55,0.15,0.025,1.0
+CAISO_HOSPITAL_01,hospital,200,800,0.94,0.7,0.25,0.03,1.3
+CAISO_RESTAURANT_01,full_service_restaurant,50,160,0.91,0.5,0.12,0.024,1.0
+CAISO_RESIDENTIAL_01,single_family_attached,6,27,0.9,0.6,0.1,0.02,0.8
