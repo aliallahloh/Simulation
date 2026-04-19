@@ -1,0 +1,58 @@
+You are writing the complete paper from this GitHub folder.
+
+Your task is to produce a full, professional, publication-quality manuscript draft based only on the evidence in this folder. Use the files here as the source of truth. Do not invent methods, baselines, results, references, or claims that are not supported by the files.
+
+Read these files first, in this order:
+1. README_FIRST.md
+2. DATASET_CARD.md
+3. METHODS_SUMMARY.md
+4. RESULTS_SUMMARY.md
+5. PAPER_POSITIONING_AND_LIMITATIONS.md
+6. evidence/metrics/forecast_main_results.csv
+7. evidence/metrics/twin_results.csv
+8. evidence/metrics/scenario_key_results.csv
+9. evidence/metrics/ablation_key_results.csv
+10. evidence/metrics/dispatch_deltas_vs_deterministic.csv
+11. configs/full.yaml
+12. dataset_core/overlays/battery/battery_assets.csv
+
+Then write the paper.
+
+Required framing:
+- a trustworthy federated hybrid digital twin
+- personalized forecasting for renewable-rich VPP management
+- trust-aware risk-scheduled MPC under abnormal conditions
+
+Central claim:
+- the integrated stack improves observability, forecast competitiveness, and cost/resilience under abnormal scenarios
+
+Do not claim:
+- deep MARL was implemented
+- unconstrained RL was benchmarked
+- the uncertainty module is universally beneficial
+- dramatic peak-import reduction in all scenarios
+- battery degradation optimization beyond throughput evidence
+
+Tone requirements:
+- formal journal style
+- precise and technically rigorous
+- honest claim strength
+- if a result is mixed, say it is mixed
+- if a limitation is real, include it
+- do not fabricate citations; use placeholders like [REF]
+
+Deliverable sections:
+1. Title
+2. Abstract
+3. Keywords
+4. Introduction
+5. Related Work
+6. Problem Formulation
+7. System Architecture and Methods
+8. Experimental Setup
+9. Results
+10. Limitations
+11. Conclusion
+12. Figure captions
+13. Table plan
+14. A concise novelty summary
